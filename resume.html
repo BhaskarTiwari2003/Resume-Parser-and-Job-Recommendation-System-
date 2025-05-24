@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Category Prediction</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+            color: #333;
+            padding: 20px;
+            animation: fadeInBody 1.2s ease-in;
+        }
+
+        @keyframes fadeInBody {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background: linear-gradient(to right, #ffffff, #f1f8ff);
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            animation: slideUp 1s ease-in-out;
+        }
+
+        .container.dark {
+            background: linear-gradient(to right, #013a5c, #035a8d);
+            color: white;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        p,
+        ul {
+            margin-bottom: 15px;
+            font-size: 17px;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .custom-file-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+  max-width: 350px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.custom-file-label input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%; height: 100%;
+  cursor: pointer;
+}
+#file-name {
+  margin-left: 10px;
+  font-style: italic;
+  color: #555;
+}
+
+
+        input[type="file"] {
+            padding: 12px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 350px;
+            transition: border 0.3s ease;
+        }
+
+        input[type="file"]:hover {
+            border-color: #00796b;
+        }
+        .custom-file-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+  max-width: 350px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.custom-file-label input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%; height: 100%;
+  cursor: pointer;
+}
+#file-name {
+  margin-left: 10px;
+  font-style: italic;
+  color: #555;
+}
+
+        input[type="submit"] {
+            padding: 14px 32px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 30px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .list-unstyled {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            input[type="file"],
+            input[type="submit"] {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container dark">
+        <h1 class="text-center">🚀 Resume Screening AI System</h1>
+        <p>This system supports TXT and PDF resume files and performs the following:</p>
+        <ul>
+            <li>📂 Resume Categorization</li>
+            <li>💼 Job Recommendation</li>
+            <li>📊 Resume Parsing (Info Extraction)</li>
+        </ul>
+    </div>
+
+    <div class="container dark">
+        <h2>📤 Upload Your Resume</h2>
+        <form action="/pred" method="post" enctype="multipart/form-data">
+            <label for="resume-upload" class="custom-file-label">
+                <input id="resume-upload" type="file" name="resume" accept=".pdf,.txt" required>
+                <span id="file-name">No file chosen</span>
+              </label>
+              
+            <input type="submit" value="Submit">
+        </form>
+
+        {% if message %}
+        <p class="text-center">{{ message }}</p>
+        {% endif %}
+
+        {% if predicted_category %}
+        <br>
+        <hr>
+        <p class="text-center"><strong>📌 Category:</strong> {{ predicted_category }}</p>
+        <p class="text-center"><strong>💡 Recommended Job:</strong> {{ recommended_job }}</p>
+        <hr>
+        <h2 class="text-center">🧾 Extracted Information</h2>
+        <p class="text-center"><strong>👤 Name:</strong> {{ name }}</p>
+        <p class="text-center"><strong>📞 Phone No:</strong> {{ phone }}</p>
+        <p class="text-center"><strong>📧 Email:</strong> {{ email }}</p>
+
+        {% if extracted_skills %}
+        <p class="text-center"><strong>🛠️ Skills:</strong></p>
+        <ul class="list-unstyled text-center">
+            {% for skill in extracted_skills %}
+            <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="text-center">No skills found...</p>
+        {% endif %}
+
+        {% if extracted_education %}
+        <h2 class="text-center">🎓 Education</h2>
+        <ul class="list-unstyled text-center">
+            {% for edu in extracted_education %}
+            <li>{{ edu }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="text-center">No education found...</p>
+        {% endif %}
+        {% endif %}
+    </div>
+    <script>
+        const inp = document.getElementById('resume-upload');
+        const label = document.getElementById('file-name');
+        inp.addEventListener('change', () => {
+          label.textContent = inp.files.length
+            ? inp.files[0].name
+            : 'No file chosen';
+        });
+      </script>
+      
+
+</body>
+
+</html>
