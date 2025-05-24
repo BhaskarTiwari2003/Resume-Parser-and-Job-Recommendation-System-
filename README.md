@@ -98,11 +98,8 @@ PDF parsing using pdfminer.six
 Inspired by the need to automate HR processes using AI
 
 ### 📬 Contact
-For questions, reach out via snehanshusaha.6072@gmail.com or open an issue.
+For questions, reach out via bhaskarjan122003@gmail.com or open an issue.
 
 ### ⭐ Star this repo if it helped you!
 
-yaml
-```
-Let me know if you’d like help generating a screenshot banner for your README or deploying to Vercel/Render.
-```
+
