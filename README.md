@@ -132,5 +132,5 @@ resume-screening-ai/
 └── README.md
 ```
 <h2 align="center">🖼 UI Preview</h2> <p align="center"> <img src="ss1.jpeg" width="300" /> <img src="ss2.jpeg" width="300" /><br/> <img src="ss3.jpeg" width="300" /> <img src="ss4.jpeg" width="300" /> </p>
-<h2 align="center">🙏 Acknowledgments</h2> <p align="center"> Built using <code>sklearn</code> for ML and <code>pdfminer.six</code> for PDF parsing.<br/> Inspired by the need to automate HR processes using AI. </p>
+<h2 align="center"> Acknowledgments</h2> <p align="center"> Built using <code>sklearn</code> for ML and <code>pdfminer.six</code> for PDF parsing.<br/> Inspired by the need to automate HR processes using AI. </p>
 <h2 align="center">📬 Contact</h2> <p align="center"> Reach out via <a href="mailto:bhaskarjan122003@gmail.com">bhaskarjan122003@gmail.com</a> or open an issue. </p> <p align="center">⭐ Star this repo if it helped you!</p> 
