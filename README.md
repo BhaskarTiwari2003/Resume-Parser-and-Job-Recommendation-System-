@@ -1,22 +1,3 @@
-<h1 align="center">RESUME-PARSER-AND-JOB-RECOMMENDATION-SYSTEM-</h1>
-
-<p align="center"><i>Empowering Careers Through Smarter Job Connections</i></p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/last%20commit-may-2ea44f?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/jupyter%20notebook-94.8%25-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/languages-3-blue?style=for-the-badge" />
-</p>
-
-<br/>
-
-<p align="center"><i>Built with the tools and technologies:</i></p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/-Markdown-000000?style=for-the-badge&logo=markdown" />
-  <img src="https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-</p>
-
 <h1 align="center">📄 RESUME-PARSER-AND-JOB-RECOMMENDATION-SYSTEM 📌</h1>
 
 <p align="center"><i>Empowering Careers Through Smarter Job Connections</i></p>
